@@ -7,6 +7,7 @@ import bodyParser = require('body-parser');
 
 import routes = require('./routes/index');
 import users = require('./routes/users');
+import movies = require('./api/movies');
 
 var app = express();
 
@@ -21,9 +22,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/ngApp', express.static('ngApp'));
+app.use('/scripts', express.static('bower_components'));
+app.use('/api', movies);
 
-app.use('/', routes);
-app.use('/users', users);
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', { root: __dirname });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

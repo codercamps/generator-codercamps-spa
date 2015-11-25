@@ -36,6 +36,7 @@ module.exports = yeoman.generators.Base.extend({
       'bower.json',
 
       // express
+      'index.html',
       'app.ts',
       'package.json',
       'bin/www',
@@ -43,7 +44,8 @@ module.exports = yeoman.generators.Base.extend({
       'routes/index.ts',
       'routes/users.ts',
       'views/error.ejs',
-      'views/index.ejs'
+      'views/index.ejs',
+      'api/movies.ts'
     ];
 
     for (let file of files) {

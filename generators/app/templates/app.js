@@ -3,8 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var movies = require('./api/movies');
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -13,8 +12,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
-app.use('/users', users);
+app.use('/ngApp', express.static('ngApp'));
+app.use('/scripts', express.static('bower_components'));
+app.use('/api', movies);
+app.all('/*', function (req, res, next) {
+    res.sendFile('index.html', { root: __dirname });
+});
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err['status'] = 404;
