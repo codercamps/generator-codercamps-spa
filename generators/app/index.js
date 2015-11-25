@@ -33,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
       'ngApp/views/notFound.html',
       'ngApp/views/register.html',
       'ngApp/app.ts',
-      'bowser.json',
+      'bower.json',
 
       // express
       'app.ts',
@@ -42,9 +42,8 @@ module.exports = yeoman.generators.Base.extend({
       'public/stylesheets/style.css',
       'routes/index.ts',
       'routes/users.ts',
-      'views/error.jade',
-      'views/index.jade',
-      'views/layout.jade'
+      'views/error.ejs',
+      'views/index.ejs'
     ];
 
     for (let file of files) {
@@ -53,6 +52,8 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath(file)
       );
     }
+
+
   },
 
   install: function () {
