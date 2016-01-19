@@ -1,15 +1,12 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
-  "authors": [
-    "StephenCoderCamps <stephen.walther@codercamps.com>"
+  "name": "app",
+  "description": "",
+  "main": "server.js",
+  "license": "ISC",
+  "moduleType": [
+    "node"
   ],
-  "description": "Coder Camps SPA Starter App",
-  "keywords": [
-    "Coder",
-    "Camps"
-  ],
-  "license": "MIT",
+  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",

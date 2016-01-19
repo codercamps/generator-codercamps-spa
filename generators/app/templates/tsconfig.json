@@ -19,30 +19,16 @@
         "**/*.tsx",
         "!node_modules/**"
     ],
+    "compileOnSave": true,
+    "buildOnSave": false,
     "files": [
-        "app.ts",
-        "ngApp/app.ts",
-        "ngApp/controllers/accountController.ts",
-        "ngApp/controllers/controllers.ts",
-        "ngApp/services/accountService.ts",
-        "ngApp/services/services.ts",
-        "routes/index.ts",
-        "routes/users.ts",
-        "typings/angularjs/angular-resource.d.ts",
-        "typings/angularjs/angular-route.d.ts",
-        "typings/angularjs/angular.d.ts",
-        "typings/body-parser/body-parser.d.ts",
-        "typings/cookie-parser/cookie-parser.d.ts",
-        "typings/express/express.d.ts",
-        "typings/jquery/jquery.d.ts",
-        "typings/mime/mime.d.ts",
-        "typings/morgan/morgan.d.ts",
-        "typings/node/node.d.ts",
-        "typings/serve-favicon/serve-favicon.d.ts",
-        "typings/serve-static/serve-static.d.ts",
-        "typings/tsd.d.ts"
+        "public/javascript/app.ts",
+        "public/javascript/controllers/HomeController.ts",
+        "public/javascript/services/HomeService.ts",
+        "public/javascript/services/HTTPFactory.ts",
+        "server.ts"
     ],
     "atom": {
-        "rewriteTsconfig": false
+        "rewriteTsconfig": true
     }
 }

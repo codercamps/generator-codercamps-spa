@@ -4,48 +4,38 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
-  prompting: function () {
-
+  prompting: function() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the breathtaking ' + chalk.red('generator-codercamps-spa') + ' generator!'
+      'Welcome to the ' + chalk.red('Coder Camps') + ' typescript generator!'
     ));
-
   },
 
-  writing: function () {
-    let files = [
-      // typescript
-      'tsconfig.json',
-      'tsd.json',
-
-      // angularjs
-      'ngApp/controllers/accountController.ts',
-      'ngApp/controllers/controllers.ts',
-      'ngApp/services/accountService.ts',
-      'ngApp/services/services.ts',
-      'ngApp/views/about.html',
-      'ngApp/views/confirmEmail.html',
-      'ngApp/views/externalLogin.html',
-      'ngApp/views/externalRegister.html',
-      'ngApp/views/home.html',
-      'ngApp/views/login.html',
-      'ngApp/views/notFound.html',
-      'ngApp/views/register.html',
-      'ngApp/app.ts',
+  writing: function() {
+    var files = [
+      './bin/www',
+      // CSS
+      './public/css/site.css',
+      // JS
+      './public/javascript/app.ts',
+      './public/javascript/app.js',
+      './public/javascript/controllers/HomeController.ts',
+      './public/javascript/controllers/HomeController.js',
+      './public/javascript/services/HomeService.ts',
+      './public/javascript/services/HomeService.js',
+      './public/javascript/services/HTTPFactory.ts',
+      './public/javascript/services/HTTPFactory.js',
+      // Templates
+      './public/templates/home.html',
+      // Views
+      './views/index.html',
+      // Root -- NO .gitignore HERE
       'bower.json',
-
-      // express
-      'index.html',
-      'app.ts',
       'package.json',
-      'bin/www',
-      'public/stylesheets/style.css',
-      'routes/index.ts',
-      'routes/users.ts',
-      'views/error.ejs',
-      'views/index.ejs',
-      'api/movies.ts'
+      'server.ts',
+      'server.js',
+      'tsconfig.json',
+      'tsd.json'
     ];
 
     for (let file of files) {
@@ -55,10 +45,13 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
 
-
+    this.fs.copyTpl(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
+    );
   },
 
-  install: function () {
+  install: function() {
     this.installDependencies();
     this.spawnCommandSync('tsd', ['install', '--save']) //tsd install --save
   }
